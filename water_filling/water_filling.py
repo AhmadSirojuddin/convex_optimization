@@ -84,7 +84,7 @@ def water_filling(a, b, c, d, f, P, tol, iter_max):
 
     while iter_th <= iter_max:
         # print("iter_th = ", iter_th, " ---------------")
-        g_nu = tr.sum(f * tr.max(nu * a / f - b / c - d, tr.zeros(N))) + tr.dot(f, d) - P; # print("   obj_val = ", g_nu)
+        g_nu = tr.sum(f * tr.max(nu * a / f - b / c - d, tr.zeros(N))) + tr.dot(f, d) - P # print("   obj_val = ", g_nu)
         g_nu = g_nu.view(1)  # ; print("   g_nu = ", g_nu)
         g_nu_trace = tr.cat([g_nu_trace, g_nu], dim=0)  # ; print("   g_nu_trace = ", g_nu_trace)
         if tr.abs(g_nu) < tol:
