@@ -90,7 +90,7 @@ def water_filling(a, b, c, d, f, P, tol, iter_max):
         if tr.abs(g_nu) < tol:
             # print("      obj_val is smaller than tolerance, stop the iteration")
             break
-        dg_dnu = tr.sum(a * (nu * a * f - b / c - d >= 0)); # print("   dg_dnu = ", dg_dnu)
+        dg_dnu = tr.sum(a * (nu * a / f - b / c - d >= 0)); # print("   dg_dnu = ", dg_dnu)
         nu = nu - g_nu / dg_dnu  # ; print("   nu = ", nu)
         iter_th += 1
     p = tr.max(nu*a/f - b/c, d)  # ; print("p = ", p); print("sum p = ", p.sum())
